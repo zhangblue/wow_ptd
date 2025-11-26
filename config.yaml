@@ -1,0 +1,12 @@
+# 游戏窗口的名称
+wow_title_name: "魔兽世界"
+# 程序如果异常，自动退出的时间
+app_exit_time: 20
+# 游戏内挂机时间
+in_game_idle_time: 800
+# 角色界面停留时间
+character_interface_dwell_time: 60
+# 小退等待时间
+small_refund_waiting_time: 30
+# 进入游戏等待时间
+entering_game_waiting_time: 30

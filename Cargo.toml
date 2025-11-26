@@ -10,3 +10,8 @@ windows = { version = "0.57", features = [
     "Win32_UI_Input_KeyboardAndMouse",
     "Win32_System_Threading"
 ] }
+
+# YAML 解析核心库
+serde_yaml = "0.9.33"
+# 序列化/反序列化（必须启用 derive 特性）
+serde = { version = "1.0.228", features = ["derive"] }
