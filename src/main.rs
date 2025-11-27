@@ -6,7 +6,7 @@ use std::time::Duration;
 use windows::Win32::Foundation::{BOOL, HWND, LPARAM};
 use windows::Win32::UI::Input::KeyboardAndMouse::{
     INPUT, INPUT_0, INPUT_KEYBOARD, KEYBD_EVENT_FLAGS, KEYBDINPUT, KEYEVENTF_KEYUP, SendInput,
-    VIRTUAL_KEY, VK_0, VK_1, VK_MENU, VK_RETURN,
+    VIRTUAL_KEY, VK_0, VK_1, VK_MENU, VK_RETURN, VK_SPACE,
 };
 use windows::Win32::UI::WindowsAndMessaging::{
     EnumWindows, GetWindowTextW, IsWindowVisible, SW_RESTORE, SetForegroundWindow, ShowWindow,
@@ -71,6 +71,9 @@ fn return_character_list(app_config: &AppConfig) {
     println!("{} 秒后小退...", app_config.in_game_idle_time);
     sleep(Duration::from_secs(app_config.in_game_idle_time));
     unsafe {
+        // 按下空格，解除插件屏保状态
+        press_white_space();
+        // 小退
         press_alt_0();
     }
     println!("正在小退... 等待{}秒", app_config.small_refund_waiting_time);
@@ -156,6 +159,12 @@ unsafe fn key_up(vk: VIRTUAL_KEY) {
         },
     };
     SendInput(std::slice::from_ref(&input), size_of::<INPUT>() as i32);
+}
+
+// 按空格
+unsafe fn press_white_space() {
+    key_down(VK_SPACE);
+    key_up(VK_SPACE);
 }
 
 // 按组合键 alt+0
