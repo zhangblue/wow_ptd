@@ -2,8 +2,10 @@
 wow_title_name: "魔兽世界"
 # 程序如果异常，自动退出的时间
 app_exit_time: 20
-# 游戏内挂机时间
-in_game_idle_time: 800
+# 游戏挂机的最小时间。这个时间不能小于300
+in_game_idle_min_time: 300
+# 游戏挂机的最大时间
+in_game_idle_max_time: 800
 # 角色界面停留时间
 character_interface_dwell_time: 60
 # 小退等待时间
